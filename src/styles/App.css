@@ -1,0 +1,83 @@
+.App {
+  text-align: center;
+  margin: 5%;
+}
+
+h1 {
+  color: #075a33;
+  padding: 15px;
+  text-align: center;
+  background-color: #7ce6bd;
+  font-size: 50px;
+  text-shadow: 2px 2px 2px #18a16d;
+}
+
+.welcomeimage {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+h2 {
+  color: #075a33;
+}
+.photoGrid {
+  margin: 0 1rem 1rem 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  flex: 80%;
+  box-sizing: border-box;
+}
+.dogImage {
+  height: 300px;
+  width: 350px;
+  padding: 4px;
+
+  flex: 30%;
+}
+
+.quizImage {
+  text-align: center;
+  align-content: center;
+}
+
+button {
+  display: inline-block;
+  background-color: #18a16d;
+  border: none;
+  color: white;
+  padding: 15px;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 4px 2px;
+  margin: 5%;
+  margin-right: 20px;
+  width: 200px;
+  height: 60px;
+}
+
+.doglogo {
+  margin-left: 30px;
+  animation: translate1 2s ease 1 reverse;
+}
+
+@keyframes translate1 {
+  100% {
+    transform: scale(1.5, 1.5);
+  }
+}
+
+.bonelogo {
+  margin-left: 30px;
+  animation: translate 2s ease infinite alternate;
+}
+
+@keyframes translate {
+  100% {
+    transform: rotate(90deg);
+  }
+}
+
+.paw {
+  margin-left: 30px;
+}
