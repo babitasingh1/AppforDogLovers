@@ -36,35 +36,70 @@ const DogBreedQuiz = (props) => {
     }
   };
 
+  const restartQuiz = () => {
+    setscore(0);
+    setquestionNo(1);
+    fetchRandomImage();
+  };
+
   return (
     <div>
       <h1>
         Welcome to this amazing quiz<i class='fas fa-bone bonelogo'></i>
       </h1>
       <div className='quizImage'>
-        <img className='dogImage' src={props.randomImage} alt='randomImage ' />
-      </div>
-      <div className='quizImage'>
-        <p>Your current score is {score}</p> <br></br>
-        <p>you are on question no. {questionNo}</p>
-      </div>
-      <div className='quizImage'>
-        <button onClick={() => calculateScore(props.breedListArray[0])}>
-          {props.breedListArray[0]}
-        </button>
-        <span> </span>
-        <button onClick={() => calculateScore(props.breedListArray[1])}>
-          {props.breedListArray[1]}
-        </button>
-        <span> </span>
-        <button onClick={() => calculateScore(props.breedListArray[2])}>
-          {props.breedListArray[2]}
-        </button>
-      </div>
-      <div className='quizImage'>
-        <Link to={`/`}>
-          <button>Home</button>
-        </Link>
+        {questionNo === 11 ? (
+          <div>
+            <div className='congrates'>
+              {score >= 12
+                ? `Welldone! you scored ${score} out of ${questionNo - 1}`
+                : `Oops! you scored ${score} out of ${questionNo - 1}`}
+            </div>
+            <div className='quizImage'>
+              <p>Your current score is : {score}</p> <br></br>
+            </div>
+            <div className='quizImage'>
+              <Link to={`/`}>
+                <button>Home</button>
+              </Link>
+
+              <button onClick={() => restartQuiz()}>Try again</button>
+            </div>
+          </div>
+        ) : (
+          <div>
+            <img
+              className='dogImage'
+              src={props.randomImage}
+              alt='randomImage '
+            />
+
+            <div className='quizImage'>
+              <p>Your current score is : {score}</p> <br></br>
+              <p>you are on question no. : {questionNo}</p>
+            </div>
+            <div className='quizImage'>
+              <button onClick={() => calculateScore(props.breedListArray[0])}>
+                {props.breedListArray[0]}
+              </button>
+              <span> </span>
+              <button onClick={() => calculateScore(props.breedListArray[1])}>
+                {props.breedListArray[1]}
+              </button>
+              <span> </span>
+              <button onClick={() => calculateScore(props.breedListArray[2])}>
+                {props.breedListArray[2]}
+              </button>
+            </div>
+            <div className='quizImage'>
+              <Link to={`/`}>
+                <button>Home</button>
+              </Link>
+
+              <button onClick={() => restartQuiz()}>Try again</button>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
