@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './Components/App';
+// eslint-disable-next-line no-unused-vars
 import Appstyle from './styles/App.css';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
