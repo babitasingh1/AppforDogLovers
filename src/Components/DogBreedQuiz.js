@@ -51,7 +51,7 @@ const DogBreedQuiz = (props) => {
         {questionNo === 11 ? (
           <div>
             <div className='congrates'>
-              {score >= 12
+              {score >= 6
                 ? `Welldone! you scored ${score} out of ${questionNo - 1}`
                 : `Oops! you scored ${score} out of ${questionNo - 1}`}
             </div>
