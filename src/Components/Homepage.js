@@ -5,16 +5,13 @@ import { connect } from 'react-redux';
 import welcomeimage from '../images/welcomeimage.png';
 
 const HomePage = (props) => {
-  
   useEffect(() => {
     fetch('https://dog.ceo/api/breeds/list/all')
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         const breeds = Object.keys(data.message);
-        console.log(breeds);
+
         props.setMainPage(breeds);
-        
       });
   }, [props]);
 
@@ -29,17 +26,19 @@ const HomePage = (props) => {
         <i class='fas fa-paw paw'></i>
       </h1>
       <h2>
-        <Link to='/dogList'><h2> Complete list of dog breeds</h2> </Link>
+        <Link to='/dogList'>
+          <h2> Complete list of dog breeds</h2>{' '}
+        </Link>
         <br></br>
         <br></br>
-        
-        <Link to='/DogBreedQuiz'><h2>Start quiz here</h2></Link>
+
+        <Link to='/DogBreedQuiz'>
+          <h2>Start quiz here</h2>
+        </Link>
       </h2>
       <img src={welcomeimage} alt='lovely-dog' className='welcomeimage' />
     </div>
   );
 };
-
-
 
 export default connect(null, { setMainPage })(HomePage);

@@ -21,7 +21,6 @@ const DogList = (props) => {
 };
 
 function mapStateToProps(state) {
-  console.log(state);
   return state;
 }
 

@@ -6,26 +6,22 @@ import { Link } from 'react-router-dom';
 const DogBreedQuiz = (props) => {
   const [score, setscore] = useState(0);
   const [questionNo, setquestionNo] = useState(1);
-  console.log(props.answer);
 
   const fetchRandomImage = () => {
     fetch('https://dog.ceo/api/breeds/image/random')
       .then((response) => response.json())
       .then((data) => {
         const randomImagedata = data.message;
-        console.log(randomImagedata);
         props.setRandomDogImage(randomImagedata);
       });
   };
 
   useEffect(() => {
     fetchRandomImage();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const calculateScore = (option) => {
-    console.log(props.answer);
-    console.log(option);
-
     if (option === props.answer) {
       setscore(score + 1);
       setquestionNo(questionNo + 1);
@@ -116,7 +112,6 @@ function mapStateToProps(state) {
   const breedListArray = [];
   breedListArray.push(answer, option1, option2);
   breedListArray.sort();
-  console.log(breedListArray);
   return {
     randomImage: state.selectRandomDog.image,
     answer: state.selectRandomDog.answer,

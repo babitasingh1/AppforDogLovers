@@ -14,7 +14,6 @@ const SelectedDogBreed = (props) => {
       .then((data) => {
         props.setDogImage(data.message.slice(0, 9));
       });
-    console.log(props);
   }, [props, url]);
 
   return (
